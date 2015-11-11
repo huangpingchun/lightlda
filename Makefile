@@ -5,7 +5,8 @@ CXXFLAGS = -O3 \
            -std=c++11 \
            -Wall \
            -Wno-sign-compare \
-           -fno-omit-frame-pointer
+           -fno-omit-frame-pointer \
+           -fpermissive
 
 MULTIVERSO_DIR = $(PROJECT)/multiverso
 MULTIVERSO_INC = $(MULTIVERSO_DIR)/include
@@ -14,7 +15,7 @@ THIRD_PARTY_LIB = $(MULTIVERSO_DIR)/third_party/lib
 
 INC_FLAGS = -I$(MULTIVERSO_INC)
 LD_FLAGS  = -L$(MULTIVERSO_LIB) -lmultiverso
-LD_FLAGS += -L$(THIRD_PARTY_LIB) -lzmq -lmpi -lmpl
+LD_FLAGS += -L$(THIRD_PARTY_LIB) -lzmq -lmpich -lmpl
   	  	
 LIGHTLDA_HEADERS = $(shell find $(PROJECT)/src -type f -name "*.h")
 LIGHTLDA_SRC     = $(shell find $(PROJECT)/src -type f -name "*.cpp")
